@@ -29,7 +29,7 @@ function renderProducts() {
 
 // Render cart list
 function renderCart() {
-  const cartData = sessionStorage.getItem("cart");
+  const cartData = localStorage.getItem("cart");
   const cart = cartData ? JSON.parse(cartData) : [];
   cartList.innerHTML="";
 
@@ -45,12 +45,12 @@ const li= document.createElement("li");
 // Add item to cart
 function addToCart(productId) {
   const product = products.find((p) => p.id === productId);
-  const cartData = sessionStorage.getItem("cart");
+  const cartData = localStorage.getItem("cart");
   const cart = cartData ? JSON.parse(cartData) : [];
 
   cart.push(product);
 
-  sessionStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
   renderCart();
 }
 
